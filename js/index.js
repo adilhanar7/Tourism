@@ -62,7 +62,7 @@ setTimeout(() => {
   const logo = document.querySelector('.wrapper__header_container-logo')
   const elemParalaxs = [human, clouds, mountains]
   const setStyles = () => {
-    logo.style.marginTop = '0px'
+    logo.style.marginTop = '0%'
     logo.style.opacity = '1'
     setTimeout(() => {
       elemParalaxs.forEach((elem, i) => {
@@ -87,13 +87,13 @@ setTimeout(() => {
     setTimeout(() => {
       headerList.forEach((elem, i) => {
         setTimeout(() => {
-          elem.style.marginTop = '0px'
+          elem.style.marginTop = '0%'
           elem.style.opacity = '1'
         }, i * 100)
       })
     }, 800)
     setTimeout(() => {
-      buttonModeColor.style.marginTop = '0px'
+      buttonModeColor.style.marginTop = '0%'
       buttonModeColor.style.opacity = '1'
     }, 1200)
     requestAnimationFrame(setStyles)
