@@ -1,0 +1,249 @@
+.wrapper {
+  overflow: hidden;
+  &__header {
+    position: relative;
+    z-index: 5;
+    &_backdrop {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 0px;
+      width: 100%;
+      background: rgb(57, 189, 216);
+      transition: 0.5s;
+    }
+    &_container {
+      position: absolute;
+      left: 100px;
+      top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-logo {
+        opacity: 0;
+        margin-top: -100px;
+        transition: 0.5s;
+        cursor: pointer;
+        color: white;
+      }
+      &-list {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        &_element {
+          position: relative;
+          cursor: pointer;
+          margin-left: 20px;
+          margin-top: -100px;
+          opacity: 0;
+          transition: 0.5s;
+          color: rgb(217, 217, 217);
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: rgb(111, 111, 254);
+            transition: 0.5s;
+          }
+          &:hover {
+            color: rgb(111, 111, 254);
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+      &_modeColor {
+        background-color: white;
+        margin-top: -100px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        transition: 0.5s;
+        span {
+          transition: 0.5s;
+          color: black;
+        }
+        &.active {
+          background-color: black;
+          span {
+            color: white;
+          }
+          &:hover {
+            background-color: white;
+            span {
+              color: black;
+            }
+          }
+        }
+        &:hover {
+          background-color: black;
+          span {
+            color: white;
+          }
+        }
+      }
+      &-anchor {
+        display: flex;
+        align-items: center;
+        img {
+          transition: 0.5s;
+          cursor: pointer;
+          max-width: 100px;
+          max-height: 100px;
+          transform: rotate(135deg);
+        }
+      }
+    }
+  }
+  &__hero {
+    display: flex;
+    align-items: center;
+    .title {
+      position: relative;
+      z-index: 4;
+      h2 {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        opacity: 0;
+        transition: 0.5s;
+        &.active {
+          top: -76px;
+          opacity: 1;
+        }
+      }
+    }
+    .wrapper__hero_day {
+      img {
+        height: 100px;
+        width: 100px;
+        z-index: 3;
+        position: absolute;
+        left: 60%;
+        top: -50%;
+        transition: 2s;
+        opacity: 0.8;
+      }
+    }
+    .paralax {
+      min-height: 100vh;
+      min-width: 100%;
+    }
+    &_paralax {
+      .paralax__images {
+        position: absolute;
+        width: 150%;
+        height: 120%;
+        left: -10%;
+        top: -10%;
+      }
+      &-item {
+        .paralax__image_clouds,
+        .paralax__image_mountains,
+        .paralax__image_human {
+          position: absolute;
+          transition: 0.9s;
+          width: 100%;
+          height: 100%;
+          left: 0;
+        }
+        .paralax__image_clouds {
+          background: url('../img/clouds.jpg') top / cover no-repeat;
+          top: 0;
+          opacity: 0;
+        }
+        .paralax__image_mountains {
+          background: url('../img/mountains.png') top / cover no-repeat;
+          top: 200%;
+          z-index: 2;
+          opacity: 0;
+        }
+        .paralax__image_human {
+          background: url('../img/human.png') top / cover no-repeat;
+          top: 35%;
+          z-index: 3;
+          height: 70%;
+          opacity: 0;
+          left: -100%;
+        }
+      }
+    }
+  }
+  &__content {
+    z-index: 4;
+    &_backdrop {
+      position: relative;
+      z-index: 4;
+      background-color: white;
+      background-size: cover;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.797);
+      width: 100%;
+      padding: 20px 25px;
+      transition: 0.5s;
+    }
+    &_review {
+      background-color: black;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-sizing: border-box;
+      width: 50%;
+      margin-left: 0%;
+      margin-top: 10px;
+      opacity: 0;
+      z-index: 4;
+      transition: 0.5s;
+      &.active {
+        margin-left: 25%;
+        opacity: 1;
+      }
+      .review_text {
+        color: white;
+      }
+    }
+  }
+}
+body {
+  overflow-x: hidden;
+  padding: 0;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1110px;
+}
+.title {
+  color: white;
+}
+.body_backdrop {
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.582);
+  opacity: 0;
+  transition: 0.5s;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+  width: 12px;
+  height: 12px;
+  transition: 0.5s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: lighten(black, 5%);
+}
