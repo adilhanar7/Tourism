@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   list-style-type: none;
-  margin-left: 50px;
+  margin-left: 80px;
 }
 
 .wrapper__header_container-list_element {
@@ -78,7 +78,7 @@
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  margin-left: 100px;
+  margin-left: 500px;
   transition: 0.5s;
 }
 
