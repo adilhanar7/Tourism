@@ -1,5 +1,5 @@
 .wrapper {
-  overflow: hidden;
+  // overflow: hidden;
   &__header {
     position: relative;
     z-index: 5;
@@ -18,6 +18,7 @@
       top: 20px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       &-logo {
         opacity: 0;
         margin-top: -100%;
@@ -29,7 +30,6 @@
         display: flex;
         align-items: center;
         list-style-type: none;
-        margin-left: 80px;
         &_element {
           position: relative;
           cursor: pointer;
@@ -65,7 +65,6 @@
         border-radius: 10px;
         border: none;
         cursor: pointer;
-        margin-left: 500px;
         transition: 0.5s;
         span {
           transition: 0.5s;
@@ -104,6 +103,8 @@
     }
   }
   &__hero {
+    width: 100%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     .title {
@@ -212,6 +213,7 @@
 }
 body {
   overflow-x: hidden;
+  // overflow-y: hidden;
   padding: 0;
 }
 .container {
@@ -253,7 +255,9 @@ body {
   .wrapper__header_container-list {
     display: none;
   }
+}
+@media screen and(max-width: 650px) {
   .wrapper__header_container_modeColor {
-    margin-left: 50%;
+    margin-left: -100px;
   }
 }
