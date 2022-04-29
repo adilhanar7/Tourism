@@ -1,5 +1,5 @@
 .wrapper {
-  overflow: hidden;
+  // overflow: hidden;
   &__header {
     position: relative;
     z-index: 5;
@@ -21,7 +21,7 @@
       justify-content: space-between;
       &-logo {
         opacity: 0;
-        margin-top: -100px;
+        margin-top: -100%;
         transition: 0.5s;
         cursor: pointer;
         color: white;
@@ -34,7 +34,7 @@
           position: relative;
           cursor: pointer;
           margin-left: 20px;
-          margin-top: -100px;
+          margin-top: -100%;
           opacity: 0;
           transition: 0.5s;
           color: rgb(217, 217, 217);
@@ -58,7 +58,7 @@
       }
       &_modeColor {
         background-color: white;
-        margin-top: -100px;
+        margin-top: -100%;
         padding: 10px;
         display: flex;
         align-items: center;
@@ -103,6 +103,8 @@
     }
   }
   &__hero {
+    width: 100%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     .title {
@@ -211,6 +213,7 @@
 }
 body {
   overflow-x: hidden;
+  // overflow-y: hidden;
   padding: 0;
 }
 .container {
@@ -246,4 +249,15 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: lighten(black, 5%);
+}
+
+@media screen and (max-width: 818px) {
+  .wrapper__header_container-list {
+    display: none;
+  }
+}
+@media screen and(max-width: 650px) {
+  .wrapper__header_container_modeColor {
+    margin-left: -100px;
+  }
 }
