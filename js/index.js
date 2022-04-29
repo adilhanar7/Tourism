@@ -20,6 +20,7 @@ const mountains = document.querySelector('.paralax__image_mountains')
 const human = document.querySelector('.paralax__image_human')
 const reviewTexts = Array.from(document.querySelectorAll('.review_text'))
 let bodyMode = true
+let outerWidthWindow = 0
 let dayBool = true
 let rePosDay = true
 
@@ -60,7 +61,7 @@ setTimeout(() => {
 }, 300)
 setTimeout(() => {
   const logo = document.querySelector('.wrapper__header_container-logo')
-  const elemParalaxs = [human, clouds, mountains]
+  const elemParalaxs = [mountains, clouds, human]
   const setStyles = () => {
     logo.style.marginTop = '0%'
     logo.style.opacity = '1'
@@ -99,8 +100,11 @@ setTimeout(() => {
     requestAnimationFrame(setStyles)
   }
   setStyles()
-}, 50)
-
+  outerWidthWindow = window.innerWidth
+}, 10)
+window.addEventListener('resize', () => {
+  outerWidthWindow = window.innerWidth
+})
 window.addEventListener('scroll', (event) => {
   if (bodyMode) {
     if (pageYOffset >= 6) {
@@ -121,48 +125,53 @@ window.addEventListener('scroll', (event) => {
   // chekedScrollWindowForHeader()
   chekedScrollWindowForAnimation()
 })
-blockParalax.addEventListener('mousemove', (e) => {
-  const clouds = document.querySelector('.paralax__image_clouds')
-  const mountains = document.querySelector('.paralax__image_mountains')
-  const human = document.querySelector('.paralax__image_human')
+window.addEventListener('mousemove', () => {
+  if (outerWidthWindow >= 1024) {
+    blockParalax.addEventListener('mousemove', (e) => {
+      const clouds = document.querySelector('.paralax__image_clouds')
+      const mountains = document.querySelector('.paralax__image_mountains')
+      const human = document.querySelector('.paralax__image_human')
 
-  const forClouds = 20
-  const forMountains = 10
-  const forHuman = 5
-  const forDay = 40
-  const speed = 0.8
+      const forClouds = 20
+      const forMountains = 10
+      const forHuman = 5
+      const forDay = 40
+      const speed = 0.8
 
-  let croodX = 0
-  let croodY = 0
+      let croodX = 0
+      let croodY = 0
 
-  const offsetHeight = blockParalax.offsetHeight
-  const offsetWidth = blockParalax.offsetWidth
-  const mouseX = e.clientX
-  const mouseY = e.clientY
-  const crooX = mouseX - offsetWidth / 2
-  const crooY = mouseY - offsetHeight / 2
-  croodX = (crooX / offsetWidth) * 100
-  croodY = (crooY / offsetHeight) * 100
+      const offsetHeight = blockParalax.offsetHeight
+      const offsetWidth = blockParalax.offsetWidth
+      const mouseX = e.clientX
+      const mouseY = e.clientY
+      const crooX = mouseX - offsetWidth / 2
+      const crooY = mouseY - offsetHeight / 2
+      croodX = (crooX / offsetWidth) * 100
+      croodY = (crooY / offsetHeight) * 100
 
-  const distX = (croodX / 2) * speed
-  const distY = (croodY / 2) * speed
+      const distX = (croodX / 2) * speed
+      const distY = (croodY / 2) * speed
 
-  const setStyle = () => {
-    clouds.style.transform = `translate(${distX / forClouds}%,${
-      distY / forClouds
-    }%)`
-    mountains.style.transform = `translate(${distX / forMountains}%,${
-      distY / forMountains
-    }%)`
-    human.style.transform = `translate(${distX / forHuman}%,${
-      distY / forHuman
-    }%)`
-    console.log((distY / 10) * forDay + 300)
-    day.style.transform = `translate(${(distX * forDay) / 3}%,${
-      (distY / 10) * forDay + 150
-    }%)`
+      const setStyle = () => {
+        clouds.style.transform = `translate(${distX / forClouds}%,${
+          distY / forClouds
+        }%)`
+        mountains.style.transform = `translate(${distX / forMountains}%,${
+          distY / forMountains
+        }%)`
+        human.style.transform = `translate(${distX / forHuman}%,${
+          distY / forHuman
+        }%)`
+        console.log((distY / 10) * forDay + 300)
+        day.style.transform = `translate(${(distX * forDay) / 3}%,${
+          (distY / 10) * forDay + 150
+        }%)`
+      }
+      requestAnimationFrame(setStyle)
+    })
+  } else {
   }
-  requestAnimationFrame(setStyle)
 })
 buttonModeColor.addEventListener('click', () => {
   if (bodyMode) {
